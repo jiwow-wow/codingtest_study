@@ -7,7 +7,14 @@ def solution(arr, k):
         else:
             if n not in answer:
                 answer.append(n)
+                
     while len(answer) !=k:
         answer.append(-1)
 
     return answer 
+
+'''
+return answer + [-1] * (k - len(answer))
+이렇게 작성하면 while문 없어도 됨
+
+'''
