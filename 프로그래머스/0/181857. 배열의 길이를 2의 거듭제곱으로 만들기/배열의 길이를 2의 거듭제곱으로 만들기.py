@@ -11,3 +11,25 @@ def solution(arr):
                 break
     
     return arr
+
+
+'''
+같은 방법 중 가장 좋은 풀이:
+def solution(arr):
+    answer = [2**i for i in range(11)]
+    while len(arr) not in answer:
+        arr.append(0)
+    return arr
+
+'''
+
+
+'''
+다른 풀이:
+def solution(arr):
+    a = 1
+    b = len(arr)
+    while a < b :
+        a *= 2
+    return arr + [0] * (a-b)
+'''
