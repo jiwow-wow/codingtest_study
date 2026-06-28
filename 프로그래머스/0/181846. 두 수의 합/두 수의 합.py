@@ -1,6 +1,10 @@
 # def solution(a, b):
 #     return str(int(a) + int(b))
+"""
+해당 풀이가 불가능한 이유(gpt):
+Python 3.11부터는 보안상의 이유(CVE-2020-10735)로 너무 긴 문자열을 int()로 변환하는 것을 제한합니다.
 
+"""
 
 def solution(a, b):
     result = []
