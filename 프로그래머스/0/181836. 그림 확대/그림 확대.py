@@ -11,3 +11,9 @@ def solution(picture, k):
             answer.append(new_str)
         
     return answer
+
+'''
+다른 풀이: replace 두번 사용하는 방법도 있음
+answer.append(picture[i].replace('.', '.' * k).replace('x', 'x' * k))
+
+'''
