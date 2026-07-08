@@ -8,7 +8,9 @@ def solution(n):
         
     for i, num in enumerate(answer[::-1]):
         result += int(num)*(3**i)
-        
-
     
     return result
+'''
+int() 함수에는 n진수로 만들어주는 기능이 있다
+return int(answer, 3)
+'''
