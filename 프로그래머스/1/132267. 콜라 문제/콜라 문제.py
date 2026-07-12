@@ -1,17 +1,15 @@
-def solution(a, b, n):
-    answer = cola_return(a, b, n)
-    return answer
-
-def cola_return(a,b,n):
+def solution(a,b,n):
     total =0
     
     while( n//a >0):
         sub = n%a
         n = (n//a) *b
         total += n
-        n+=sub
-            
-        print(n, total, sub)
-        
+        n+=sub        
     
     return total
+"""
+    while n >= a:
+        answer += (n // a) * b
+        n = (n // a) * b + (n % a)
+"""
