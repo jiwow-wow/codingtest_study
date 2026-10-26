@@ -1,20 +1,21 @@
 def solution(wallpaper):
     
-    left_list = [] 
-    right_list = []
+    horizon = []
     vertical = []
     
     for i, p in enumerate(wallpaper):
                 
         left = p.find('#')
-        left_list.append(left if left >= 0 else 999)
+        if left != -1:
+            horizon.append(left)
         
         right = p.rfind('#')
-        right_list.append(right)
+        if right != -1:
+            horizon.append(right)
         
         if '#' in p :
             vertical.append(i)
             
-    answer= [min(vertical), min(left_list), max(vertical)+1,  max(right_list)+1]
+    answer= [min(vertical), min(horizon), max(vertical)+1,  max(horizon)+1]
     
     return answer
