@@ -18,8 +18,7 @@ def solution(new_id):
     if len(new_id) >= 16:
         new_id = new_id[:15]
         new_id = new_id.rstrip('.')
-    elif len(new_id) <= 2:
-        while (len(new_id) <3):
-            new_id += new_id[-1]
+    while (len(new_id) <3):
+        new_id += new_id[-1]
             
     return new_id
