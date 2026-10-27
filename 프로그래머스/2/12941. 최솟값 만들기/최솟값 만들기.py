@@ -3,7 +3,6 @@ def solution(A,B):
     sum = 0
     A.sort()
     B.sort(reverse = True)
-    print(A, B)
     for i in range(len(A)):
         sum += A[i] *B[i]
         
