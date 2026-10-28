@@ -4,8 +4,9 @@ def solution(k, tangerine):
     answer =0
     counts = Counter(tangerine)
     
-    for cost, freq in counts.most_common():
-        k -=  freq
+    # for cost, val in counts.most_common():
+    for key, val in sorted(counts.items(), key = lambda x: x[1] , reverse =True):
+        k -=  val
         answer += 1
         if k <= 0:
             break
