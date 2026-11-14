@@ -3,18 +3,9 @@ for test_case in range(1,11):
     arr = [ list(map(int, input().split())) for x in range(100)]
     
     
-    #max_row = max( sum(row) for row in arr )
-    max_row =0
-    for row in arr:
-        if max_row <= sum(row):
-            max_row = sum(row)
-            
-    max_col = 0 
-    for col in zip(*arr):
-        sum_col = sum(col)
-        if max_col <= sum_col:
-            max_col = sum_col
-            
+    max_row = max( sum(row) for row in arr )
+    max_col = max(sum(col) for col in zip(*arr))
+    
     right_down =0
     left_down =0
     for i in range(100):
