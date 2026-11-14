@@ -1,16 +1,25 @@
 for test_case in range(1,11):
     _ = input()
+    arr = [ list(map(int, input().split())) for x in range(100)]
     
-    arr_list = [0] *100
+    
+    #max_row = max( sum(row) for row in arr )
+    max_row =0
+    for row in arr:
+        if max_row <= sum(row):
+            max_row = sum(row)
+            
+    max_col = 0 
+    for col in zip(*arr):
+        sum_col = sum(col)
+        if max_col <= sum_col:
+            max_col = sum_col
+            
+    right_down =0
+    left_down =0
     for i in range(100):
-        arr_list[i] = list(map(int, input().split() ))
+        right_down += arr[i][i]
+        left_down +=arr[i][99-i]
         
-    sum_list = [0] *202
-    for i in range(100):
-        sum_list[i] = sum(arr_list[i])  # 0~99:  arr_list 행의 합
-        sum_list[200] += arr_list[i][99-i] #우상향 대각
-        sum_list[201] += arr_list[i][i]
-        for j in range(100):
-            sum_list[100+i] += arr_list[j][i] # 100 ~199: 열의 합
-                
-    print(f"#{test_case} {max(sum_list)}")
+    print(f"#{test_case} {max(max_row, max_col, right_down, left_down)}")
+        
