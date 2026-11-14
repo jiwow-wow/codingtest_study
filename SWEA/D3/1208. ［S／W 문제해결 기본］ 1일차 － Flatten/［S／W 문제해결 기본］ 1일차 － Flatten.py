@@ -2,7 +2,7 @@ for test_case in range(1, 11):
     dump = int(input())
     boxs = list( map( int, input().split()  ) )
     #print(boxs)
-    is_flatten = False
+    #is_flatten = False
     
     for i in range(dump):
         max_box, min_box = max(boxs), min(boxs)
