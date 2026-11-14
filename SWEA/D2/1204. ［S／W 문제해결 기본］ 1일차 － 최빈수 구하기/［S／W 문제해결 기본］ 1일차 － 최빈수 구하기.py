@@ -40,26 +40,19 @@ T = int(input())
 # 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 for test_case in range(1, T + 1):
     test_num = input()
-    num_list = [ ]
     
-    while len(num_list) < 1000:
-            line = input().split()
-            if line:
-                num_list.extend(map(int, line))
-                
-    max_num =0
-    max_freq = 0
+    num_list = list(input().split( ))
+    #print(len(num_list))
+    
+    max_cnt = 0
+    max_num = 0
     for i in set(num_list):
-        cnt = num_list.count(i)
+        cnt  = num_list.count(i)
         
-        if cnt > max_freq:
+        if cnt > max_cnt:
+            max_cnt = cnt
             max_num = i
-            max_freq = cnt
-        elif cnt == max_freq and i > max_num:
-            max_num = i
-            
-    print(f"#{test_num} {max_num}")
-            
-    
-    
-    
+        elif cnt == max_cnt:
+            max_num = max(max_num, i)
+    print(f"#{test_case} {max_num}")
+        
