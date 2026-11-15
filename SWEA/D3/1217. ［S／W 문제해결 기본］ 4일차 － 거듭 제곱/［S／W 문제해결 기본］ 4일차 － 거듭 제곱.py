@@ -1,16 +1,26 @@
-def n_m(n, m): # 9^8 = 9^7 * 9 ... 9^2 = 9^1*9 
-    n = n
-    m = m
-    
+def power(n,m, memo ={}):
+    if m == 0:
+        return 1
     if m == 1:
-        return n*m
+        return n
+    
+    if m in memo:
+        return memo[m]
+    
     else:
-        return n_m(n, m-1) * n
+        half = power(n, m//2, memo)
+        
+        if m % 2 == 0:
+            memo[m] = half * half 
+        else:
+            memo[m] = half * half * n
+        return memo[m]
 
 for test_case in range(1,11):
     _ = input()
-    n, m = input().split()
+    n,m = input().split(" ")
     n = int(n)
     m = int(m)
     
-    print(f"#{test_case} {n_m(n,m)}")
+    memo = {}
+    print(f"#{test_case} {power(n,m, memo)} ")
