@@ -20,8 +20,6 @@ for tc in range(1,11):
             y = int(command[i+2])
             for _ in range(y):
                 text.pop(x)
-            #text.delete(x,y)
-            #print(x, y)
-            i = i+2+1
+            i = i+3
     result = " ".join(map(str, text[0:10]))
     print(f"#{tc} {result}")
