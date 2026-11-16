@@ -1,13 +1,19 @@
-T = int(input())
+def turn_90(arr, N): #00-> 02, 01->1,0 2,2-> 2,0
+    
+    res = [ [0]* N for _ in range(N) ] #i0 > jN-1,  i1 > jN-2 i2>jN-3 and j0>iN
+    for i in range(N):
+        for j in range(N):
+            res[j][N-1-i] = arr[i][j]
+    return res
 
-for tc in range(1, T+1): # 90, 180, 270
+T = int(input())
+for tc in range(1, T+1): 
     N = int(input())
     l = [input().split() for _ in range(N) ] 
-    rev_l = list(zip(*l))
     
-    l_90 = [list(row[::-1]) for row in rev_l ] 
-    l_180 = [ list(row[::-1]) for row in l ][::-1]
-    l_270 = [ list(row) for row in rev_l ][::-1]
+    l_90 = turn_90(l, N)
+    l_180 = turn_90(l_90, N)
+    l_270 = turn_90(l_180, N)
 
     print(f"#{tc}")
     for i in range(N):
