@@ -1,8 +1,12 @@
+from collections import deque
+
 T = int(input())
 for tc in range(1,T+1):
     N, M = map(int, input().split())
-    l = list(map(int, input().split()))
+    l = deque(map(int, input().split()))
+    
+    q = deque(l)
 
     for _ in range(M):
-        l.append(l.pop(0))
-    print(f"#{tc} {l[0]}")
+        q.append(q.popleft())
+    print(f"#{tc} {q[0]}")
