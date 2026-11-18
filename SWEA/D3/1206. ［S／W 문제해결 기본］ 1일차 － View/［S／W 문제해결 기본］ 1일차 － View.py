@@ -1,24 +1,30 @@
-def building_view(b_list):
-    answer = [] 
-    
-    for i, b  in enumerate(b_list):
-        if b == 0 or i in (0,1,len(b_list)-2,len(b_list)-1):
-            answer.append(0)
+# SWEA 4835: D2 이지
+# SWEA 5097: D2 이지
+# SWEA 1961: D2 굿
+# SWEA 1954: D2 방향전환 어려움 - 다시 풀기(2회차 맞음)
+# SWEA 2001: D2 파리퇴치 어려움 - 다시풀기(2회차 맞음)
+# SWEA 20019: D3 이지 회문 판별
+# SWEA 1225: D3 이지
+# SWEA 1979: D2 중간(혼자 풀긴함)
+# SWEA 1206: D3
+
+
+# T = int(input())
+for tc in range(1, 11):
+    # N, K = map(int, input().split())
+    N = int(input())
+    l = list(map(int, input().split(" ")))
+    cnt = 0
+
+    for i in range(2, N-3+1): # 2~7
+        if  l[i] == 0:
             continue
-            
-        max_h = max(b_list[i-2], b_list[i-1], b_list[i+1], b_list[i+2] )
-        if max_h > b:
-            answer.append(0)
-        elif b > max_h:
-            answer.append(b - max_h)
-    return answer
 
-for test_case in range(1,11):
-    b_num = input()
-    b_list = list(map(int, input().split() ))
-    view_sum = sum( building_view(b_list) )
-    print(f"#{test_case} {view_sum}")
-    
+        max_ = max([l[i-2], l[i-1], l[i+1], l[i+2]])
+        if max_ <l[i]:
+            cnt += l[i] - max_
 
-    
-    
+
+
+
+    print(f"#{tc} {cnt}")
