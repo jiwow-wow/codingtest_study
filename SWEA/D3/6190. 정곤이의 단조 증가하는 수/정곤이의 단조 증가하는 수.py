@@ -42,7 +42,7 @@ for tc in range(1,T+1):
 
     # print(l)
     max_num = -1
-    for i in range(N-1):
+    for i in range(N):
         for j in range(i+1,N):
             str_num = str(l[i]*l[j])
 
