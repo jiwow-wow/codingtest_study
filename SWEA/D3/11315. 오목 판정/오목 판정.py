@@ -23,8 +23,7 @@
 # SWEA 4047: 음굿 D3
 # SWEA 5658: 음굿 모의 SW 역량테스트
 # SWEA 6190: 굿 D3
-
-# SWEA 11315: D3
+# SWEA 11315: 좀 걸렸음D3
 #---------------------------------------------------------
 
 
@@ -33,7 +32,7 @@ def omok(l):
     for i in range(0, N-5+1):
         for row in l:
 
-            if row[i:i+5] == ['o']*5 or row[i:i+5] == tuple('o'*5):
+            if row[i:i+5] == ['o']*5:
                 return 1
 
         for j in range(0, N-5+1):
@@ -51,7 +50,7 @@ for tc in range(1,T+1):
     N = int(input())
     l = [ list(input()) for _ in range(N) ]
 
-    l_90 = [ row[::-1] for row in list(zip(*l))]
+    l_90 = [ list(row[::-1]) for row in list(zip(*l))]
 
 
     if omok(l) or omok(l_90):
