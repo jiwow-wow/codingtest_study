@@ -33,7 +33,7 @@ def card(string):
 
     for i in range((len(string)//3)): # 0123
         al = string[i*3]
-        num = int(string[i*3+1:i*3+3])
+        num = int(string[i*3+1:i*3+3]) -1
 
         if al =="S":
             if l[0][num] == 1:
@@ -67,7 +67,7 @@ T = int(input())
 for tc in range(1,T+1):
 
     string = input()
-    l = [[0]*14 for _ in range(4)]
+    l = [[0]*13 for _ in range(4)]
 
     res = card(string)
     if res == "ERROR":
