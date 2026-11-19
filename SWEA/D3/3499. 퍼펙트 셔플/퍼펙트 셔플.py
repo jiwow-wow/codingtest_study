@@ -20,7 +20,7 @@
 # SWEA 5356: 굿 의석이의 세로로 말해요
 # SWEA 6485: 굿삼성시의 버스 노선
 
-# SWEA 3499: D3
+# SWEA 3499: 굿 D3
 # SWEA 4047: D3
 # SWEA 5658: 모의 SW 역량테스트
 # SWEA 6190: D3
@@ -36,21 +36,16 @@ for tc in range(1,T+1):
     # print(l)
     is_odd = False
 
-    length = len(l)
-    if length % 2 == 1:
-        is_odd = True
+    mid = (len(l)+1)//2
 
-        left = l[:length // 2+1]
-        right = l[length // 2+1:]
-    else:
-        left = l[:length // 2]
-        right = l[length // 2:]
+    left = l[:mid]
+    right = l[mid:]
 
     res = []
-    for i in range(length//2):
+    for i in range(len(l)//2):
         res.append(left[i])
         res.append(right[i])
-    if is_odd:
+    if len(l) % 2 == 1:
         res.append(left[-1])
 
     print(f"#{tc} {' '.join(res)}")
