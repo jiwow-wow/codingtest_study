@@ -20,8 +20,8 @@
 # SWEA 5356: 굿 의석이의 세로로 말해요
 # SWEA 6485: 굿삼성시의 버스 노선
 # SWEA 3499: 굿 D3
+# SWEA 4047: 음굿 D3
 
-# SWEA 4047: D3
 # SWEA 5658: 모의 SW 역량테스트
 # SWEA 6190: D3
 # SWEA 11315: D3
@@ -30,31 +30,17 @@
 
 
 def card(string):
+    card_dic = { "S":0, "D":1, "H":2, "C":3}
 
     for i in range((len(string)//3)): # 0123
         al = string[i*3]
         num = int(string[i*3+1:i*3+3]) -1
 
-        if al =="S":
-            if l[0][num] == 1:
-                return "ERROR"
-            else:
-                l[0][num] +=1
-        elif al =="D":
-            if l[1][num] == 1:
-                return "ERROR"
-            else:
-                l[1][num] +=1
-        elif al =="H":
-            if l[2][num] == 1:
-                return "ERROR"
-            else:
-                l[2][num] +=1
-        elif al =="C":
-            if l[3][num] == 1:
-                return "ERROR"
-            else:
-                l[3][num] +=1
+        k = card_dic[al]
+        if l[k][num] == 1:
+            return "ERROR"
+        else:
+            l[k][num] +=1
 
     sum_list = []
     for i in range(4):
